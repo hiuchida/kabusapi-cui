@@ -41,6 +41,18 @@ For development purposes, add compile.
 mvn compile exec:java -q
 ```
 
+If successful, a usage example will be displayed.
+
+```
+usage: MainConsoleUI toolname params [options]
+  token APIPassword [-token | -json | -curl]
+
+  apisoftlimit X-API-KEY [-json | -curl]
+  :
+```
+
+## List of toolname
+
 ### token
 
 If you have not yet logged in, log in first to obtain a token.
@@ -99,6 +111,51 @@ class ApiSoftLimitResponse {
     option: 20.0
     optionMini: 200.0
     kabuSVersion: 5.13.1.0
+}
+```
+
+-json or -curl options can be specified.
+
+### symbolname.future
+
+Call the symbolnameFuture API.
+Specify the token in xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+Specify the DerivMonth as yyyyMM format in 202309.
+Specify the FutureCode in NK225.
+
+```shell
+mvn exec:java -q -Dexec.args="symbolname.future xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 202309 NK225"
+```
+
+If successful, a string representation of the model class is displayed.
+
+```
+class SymbolNameSuccess {
+    symbol: 168090018
+    symbolName: 日経平均先物 23/09
+}                              
+```
+
+-json or -curl options can be specified.
+
+### symbolname.option
+
+Call the symbolnameFuture API.
+Specify the token in xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+Specify the DerivMonth as yyyyMM format in 202309.
+Specify the PutOrCall as "P" or "C" in C.
+Specify the StrikePrice in 32500.
+
+```shell
+mvn exec:java -q -Dexec.args="symbolname.option xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 202308 C 32500"
+```
+
+If successful, a string representation of the model class is displayed.
+
+```
+class SymbolNameSuccess {
+    symbol: 148082518
+    symbolName: 日経平均オプション 23/08 コール 32500
 }
 ```
 
