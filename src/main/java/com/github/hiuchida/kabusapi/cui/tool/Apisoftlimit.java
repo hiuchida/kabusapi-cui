@@ -10,7 +10,8 @@ import io.swagger.client.model.ApiSoftLimitResponse;
 
 public class Apisoftlimit {
 
-	public static final String USAGE = "apisoftlimit X-API-KEY [-json | -curl]";
+	public static final String TOOLNAME = "apisoftlimit";
+	public static final String USAGE = TOOLNAME + " X-API-KEY [-json | -curl]";
 
 	private InfoApiEx info = new InfoApiEx();
 
@@ -39,7 +40,7 @@ public class Apisoftlimit {
 				Gson gson = json.getGson();
 				System.out.println(gson.toJson(response));
 			} else if (bCurl) {
-				String curl = "curl -H \"X-API-KEY: " + X_API_KEY + "\" -H \"Content-Type: application/json\" -H \"Accept: application/json\" \"http://localhost:18080/kabusapi/apisoftlimit\"";
+				String curl = "curl -H \"X-API-KEY: " + X_API_KEY + "\" -H \"Accept: application/json\" \"http://localhost:18080/kabusapi/apisoftlimit\"";
 				System.out.println(curl);
 			} else {
 				System.out.println(response);

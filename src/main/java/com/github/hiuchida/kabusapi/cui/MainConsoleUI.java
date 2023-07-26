@@ -1,6 +1,8 @@
 package com.github.hiuchida.kabusapi.cui;
 
 import com.github.hiuchida.kabusapi.cui.tool.Apisoftlimit;
+import com.github.hiuchida.kabusapi.cui.tool.SymbolnameFuture;
+import com.github.hiuchida.kabusapi.cui.tool.SymbolnameOption;
 import com.github.hiuchida.kabusapi.cui.tool.Token;
 
 public class MainConsoleUI {
@@ -13,14 +15,22 @@ public class MainConsoleUI {
 			usageTool(Token.USAGE);
 			usageLF();
 			usageTool(Apisoftlimit.USAGE);
+			usageTool(SymbolnameFuture.USAGE);
+			usageTool(SymbolnameOption.USAGE);
 			return;
 		}
 		switch (args[0]) {
-		case "token":
+		case Token.TOOLNAME:
 			new Token().execute(args);
 			break;
-		case "apisoftlimit":
+		case Apisoftlimit.TOOLNAME:
 			new Apisoftlimit().execute(args);
+			break;
+		case SymbolnameFuture.TOOLNAME:
+			new SymbolnameFuture().execute(args);
+			break;
+		case SymbolnameOption.TOOLNAME:
+			new SymbolnameOption().execute(args);
 			break;
 		default:
 			System.err.println("Unknown toolname. " + args[0]);

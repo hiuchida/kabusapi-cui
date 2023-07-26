@@ -14,7 +14,8 @@ import io.swagger.client.model.TokenSuccess;
 
 public class Token {
 
-	public static final String USAGE = "token APIPassword [-token | -json | -curl]";
+	public static final String TOOLNAME = "token";
+	public static final String USAGE = TOOLNAME + " APIPassword [-token | -json | -curl]";
 
 	private AuthApiEx auth = new AuthApiEx();
 
