@@ -142,7 +142,7 @@ class SymbolNameSuccess {
 
 Call the symbolnameFuture API.
 Specify the token in xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
-Specify the DerivMonth as yyyyMM format in 202309.
+Specify the DerivMonth as yyyyMM format in 202308.
 Specify the PutOrCall as "P" or "C" in C.
 Specify the StrikePrice in 32500.
 
@@ -156,6 +156,30 @@ If successful, a string representation of the model class is displayed.
 class SymbolNameSuccess {
     symbol: 148082518
     symbolName: 日経平均オプション 23/08 コール 32500
+}
+```
+
+-json or -curl options can be specified.
+
+### symbolname.option2
+
+Call the symbolnameFuture API with the OptionCode parameter added.
+Specify the token in xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+Specify the DerivMonth as yyyyMM format in 202308.
+Specify the PutOrCall as "P" or "C" in C.
+Specify the StrikePrice in 32500.
+Specify the OptionCode in NK225miniop.
+
+```shell
+mvn exec:java -q -Dexec.args="symbolname.option2 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 202308 C 32500 NK225miniop"
+```
+
+If successful, a string representation of the model class is displayed.
+
+```
+class SymbolNameSuccess {
+    symbol: 148322526
+    symbolName: 日経平均ミニオプション 23/08 2週限 コール 32500
 }
 ```
 
