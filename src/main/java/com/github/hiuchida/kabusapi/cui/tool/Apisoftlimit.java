@@ -1,11 +1,11 @@
 package com.github.hiuchida.kabusapi.cui.tool;
 
 import com.github.hiuchida.kabusapi.client_ex.InfoApiEx;
+import com.github.hiuchida.kabusapi.client_ex.util.GsonUtil;
 import com.github.hiuchida.kabusapi.cui.MainConsoleUI;
 import com.google.gson.Gson;
 
 import io.swagger.client.ApiException;
-import io.swagger.client.JSON;
 import io.swagger.client.model.ApiSoftLimitResponse;
 
 public class Apisoftlimit {
@@ -36,8 +36,7 @@ public class Apisoftlimit {
 		try {
 			ApiSoftLimitResponse response = info.apisoftlimitGet(X_API_KEY);
 			if (bJson) {
-				JSON json = new JSON();
-				Gson gson = json.getGson();
+				Gson gson = GsonUtil.getGson();
 				System.out.println(gson.toJson(response));
 			} else if (bCurl) {
 				String curl = "curl -H \"X-API-KEY: " + X_API_KEY + "\" -H \"Accept: application/json\" \"http://localhost:18080/kabusapi/apisoftlimit\"";

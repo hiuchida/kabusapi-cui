@@ -4,11 +4,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import com.github.hiuchida.kabusapi.client_ex.AuthApiEx;
+import com.github.hiuchida.kabusapi.client_ex.util.GsonUtil;
 import com.github.hiuchida.kabusapi.cui.MainConsoleUI;
 import com.google.gson.Gson;
 
 import io.swagger.client.ApiException;
-import io.swagger.client.JSON;
 import io.swagger.client.model.RequestToken;
 import io.swagger.client.model.TokenSuccess;
 
@@ -41,16 +41,16 @@ public class Token {
 			}
 		}
 		try {
-			JSON json = new JSON();
-			Gson gson = json.getGson();
 			TokenSuccess response = auth.tokenPost(apiPassword);
 			if (bToken) {
 				System.out.println(response.getToken());
 			} else if (bJson) {
+				Gson gson = GsonUtil.getGson();
 				System.out.println(gson.toJson(response));
 			} else if (bCurl) {
 				RequestToken req = new RequestToken();
 				req.apIPassword(apiPassword);
+				Gson gson = GsonUtil.getGson();
 				String reqJson = gson.toJson(req);
 				try (PrintWriter pw = new PrintWriter("RequestToken")) {
 					pw.print(reqJson);

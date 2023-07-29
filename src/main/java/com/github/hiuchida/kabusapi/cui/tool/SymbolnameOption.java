@@ -1,12 +1,12 @@
 package com.github.hiuchida.kabusapi.cui.tool;
 
 import com.github.hiuchida.kabusapi.client_ex.InfoApiEx;
+import com.github.hiuchida.kabusapi.client_ex.util.GsonUtil;
 import com.github.hiuchida.kabusapi.cui.MainConsoleUI;
 import com.github.hiuchida.kabusapi.enums.symbolname.option.PutOrCallCode;
 import com.google.gson.Gson;
 
 import io.swagger.client.ApiException;
-import io.swagger.client.JSON;
 import io.swagger.client.model.SymbolNameSuccess;
 
 public class SymbolnameOption {
@@ -51,8 +51,7 @@ public class SymbolnameOption {
 		try {
 			SymbolNameSuccess response = info.symbolnameOptionGet(X_API_KEY, derivMonth, putOrCall, strikePrice);
 			if (bJson) {
-				JSON json = new JSON();
-				Gson gson = json.getGson();
+				Gson gson = GsonUtil.getGson();
 				System.out.println(gson.toJson(response));
 			} else if (bCurl) {
 				String curl = "curl -H \"X-API-KEY: " + X_API_KEY + "\" -H \"Accept: application/json\" \"http://localhost:18080/kabusapi/symbolname/option"
