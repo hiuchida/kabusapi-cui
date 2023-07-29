@@ -5,7 +5,7 @@
   <artifactId>kabusapi-cui</artifactId>
   <packaging>jar</packaging>
   <name>kabusapi-cui</name>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <url>https://github.com/hiuchida/kabusapi-cui</url>
   <description>kabusapi-cui</description>
   <prerequisites>
@@ -24,7 +24,7 @@
     <dependency>
       <groupId>com.github.hiuchida</groupId>
       <artifactId>kabusapi-client-ex</artifactId>
-      <version>1.0.0</version>
+      <version>1.1.0</version>
     </dependency>
     <!-- test dependencies -->
     <dependency>
